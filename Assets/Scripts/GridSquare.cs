@@ -1,18 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GridSquare : MonoBehaviour
+public class GridSquare : Selectable
 {
-    public int columns = 0;
-    public int rows = 0;
-    public float square_offset = 0.0;
-    public GameObject grid_square;
-    public Vector2 start_position = new Vector2(0.0f, 0.0f);
-    public float square_scale = 1.0f;
-
-    private List<GameObject> grid_square = new List<GameObject>();
-
+    public GameObject number_text;
+    private int number_ = 0;
 
 
     // Start is called before the first frame update
@@ -25,5 +19,23 @@ public class GridSquare : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void DisplayText()
+    {
+        if (number_ <= 0)
+        {
+            number_text.GetComponent<Text>().text = " "; 
+        }
+        else
+        {
+            number_text.GetComponent<Text>().text = number_.ToString();
+        }
+    }
+    
+    public void SetNumber(int number)
+    {
+        number_ = number;
+        DisplayText();
     }
 }
