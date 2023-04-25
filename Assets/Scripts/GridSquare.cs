@@ -9,12 +9,7 @@ public class GridSquare : Selectable
     private int number_ = 0;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+   
     // Update is called once per frame
     void Update()
     {
