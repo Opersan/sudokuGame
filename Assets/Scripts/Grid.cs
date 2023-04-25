@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class Grid : MonoBehaviour
             Debug.LogError("This Game Object need to have GridSquare script Attached");
         }
         CreateGrid();
-        SetGridNumber("Easy");
+        SetGridNumber(GameSettings.ins.GetGameMode());
     }
 
     // Update is called once per frame
@@ -81,7 +82,7 @@ public class Grid : MonoBehaviour
 
     private void SetGridNumber(string level)
     {
-        selected_grid_data = Random.Range(0, SudokuData.ins.sudoku_game[level].Count);
+        selected_grid_data = UnityEngine.Random.Range(0, SudokuData.ins.sudoku_game[level].Count);
         var data = SudokuData.ins.sudoku_game[level][selected_grid_data];
 
         setGridSquareData(data);
