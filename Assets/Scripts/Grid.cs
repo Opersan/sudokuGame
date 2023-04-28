@@ -41,14 +41,16 @@ public class Grid : MonoBehaviour
 
     private void SpawnGridSquares()
     {
+        int square_index = 0;
         for( int row = 0; row < rows; row++ )
         {
             for (int column = 0; column < columns; column++)
             {
                 grid_square_.Add(Instantiate(grid_square) as GameObject);
+                grid_square_[grid_square_.Count - 1].GetComponent<GridSquare>().SetSquareIndex(square_index);
                 grid_square_[grid_square_.Count - 1].transform.SetParent(this.transform);
                 grid_square_[grid_square_.Count - 1].transform.localScale = new Vector3(square_scale, square_scale, square_scale);
-
+                square_index++;
             }
         }
         

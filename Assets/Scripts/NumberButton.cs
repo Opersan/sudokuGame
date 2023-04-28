@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
-public class NumberButton : MonoBehaviour
+public class NumberButton : Selectable, IPointerClickHandler, ISubmitHandler, IPointerUpHandler, IPointerExitHandler
 {
-    // Start is called before the first frame update
+    public int value = 0;
+
+ 
     void Start()
     {
         
@@ -17,5 +20,13 @@ public class NumberButton : MonoBehaviour
     void Update()
     {
         
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameEvents.UpdateSquareNumberMethod(value);
+    }
+    public void OnSubmit(BaseEventData eventData)
+    {
+
     }
 }
