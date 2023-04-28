@@ -94,6 +94,7 @@ public class Grid : MonoBehaviour
         for (int i = 0; i < grid_square_.Count; i++)
         {
             grid_square_[i].GetComponent<GridSquare>().SetNumber(data.unsolved_data[i]);
+            grid_square_[i].GetComponent<GridSquare>().SetCorrectNumber(data.solved_data[i]);
         }
     }
 }
