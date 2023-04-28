@@ -7,8 +7,6 @@ public class GridSquare : Selectable
 {
     public GameObject number_text;
     private int number_ = 0;
-
-
    
     // Update is called once per frame
     void Update()

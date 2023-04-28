@@ -21,7 +21,7 @@ public class Grid : MonoBehaviour
     {
         if (grid_square.GetComponent<GridSquare>() == null)
         {
-            Debug.LogError("This Game Object need to have GridSquare script Attached");
+            Debug.LogError("This Game Object need to have GridSquare script attached");
         }
         CreateGrid();
         SetGridNumber(GameSettings.ins.GetGameMode());
