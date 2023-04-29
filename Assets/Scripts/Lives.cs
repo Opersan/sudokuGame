@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lives : MonoBehaviour
 {
     public List<GameObject> error_images;
+    public GameObject game_over_popup;
 
     int lives_ = 0;
     int error_number_ = 0;
@@ -21,6 +22,16 @@ public class Lives : MonoBehaviour
             error_images[error_number_].SetActive(true);
             error_number_++;
             lives_--;
+        }
+        CheckForGameOver();
+    }
+
+    private void CheckForGameOver()
+    {
+        if (lives_ <= 0) 
+        {
+            GameEvents.OnGameOverMethod();
+            game_over_popup.SetActive(true);
         }
     }
 

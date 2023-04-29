@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,6 +38,11 @@ public class MenuButtons : MonoBehaviour
     public void DeactivateObject(GameObject obj)
     {
         obj.SetActive(false);
+    }
+
+    public void SetPause(bool paused)
+    {
+        GameSettings.ins.SetPaused(paused);
     }
 
 }

@@ -11,6 +11,7 @@ public class Grid : MonoBehaviour
     public GameObject grid_square;
     public Vector2 start_position = new Vector2(0.0f, 0.0f);
     public float square_scale = 1.0f;
+    public float square_gap = 0.1f;
 
     private List<GameObject> grid_square_ = new List<GameObject>();
     private int selected_grid_data = -1;
@@ -55,10 +56,14 @@ public class Grid : MonoBehaviour
         }
         
     }
+
     private void SetSquaresPosition()
     {
         var square_rect = grid_square_[0].GetComponent<RectTransform>();
         Vector2 offset = new Vector2();
+        Vector2 square_gap_number = new Vector2(0.0f, 0.0f);
+        bool row_moved = false;
+
         offset.x = square_rect.rect.width * square_rect.transform.localScale.x + square_offset;
         offset.y = square_rect.rect.height * square_rect.transform.localScale.y + square_offset;
 
@@ -71,10 +76,25 @@ public class Grid : MonoBehaviour
             {
                 row_number++;
                 column_number = 0;
+                square_gap_number.x = 0;
+                row_moved = false;
             }
 
-            var pos_x_offset = offset.x * column_number;
-            var pos_y_offset = offset.y * row_number;
+            var pos_x_offset = offset.x * column_number + (square_gap_number.x * square_gap);
+            var pos_y_offset = offset.y * row_number + (square_gap_number.y * square_gap);
+
+            if(column_number > 0 && column_number % 3 == 0)
+            {
+                square_gap_number.x++;
+                pos_x_offset += square_gap;
+            }
+            if (row_number > 0 && row_number % 3 == 0 && row_moved == false)
+            {
+                row_moved = true;
+                square_gap_number.y++;
+                pos_y_offset += square_gap;
+            }
+
             square.GetComponent<RectTransform>().anchoredPosition = new Vector2(start_position.x + pos_x_offset,
                 start_position.y - pos_y_offset);
             column_number++;
@@ -95,6 +115,7 @@ public class Grid : MonoBehaviour
         {
             grid_square_[i].GetComponent<GridSquare>().SetNumber(data.unsolved_data[i]);
             grid_square_[i].GetComponent<GridSquare>().SetCorrectNumber(data.solved_data[i]);
+            grid_square_[i].GetComponent<GridSquare>().SetHasDefaultValue(data.unsolved_data[i] != 0 && data.unsolved_data[i] == data.solved_data[i]);
         }
     }
 }
