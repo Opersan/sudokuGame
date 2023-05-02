@@ -27,7 +27,31 @@ public class Grid : MonoBehaviour
             Debug.LogError("This Game Object need to have GridSquare script attached");
         }
         CreateGrid();
-        SetGridNumber(GameSettings.ins.GetGameMode());
+
+        if(GameSettings.ins.GetContinuePreviousGame())
+        {
+            SetGridFormFile();
+        } else
+        {
+            SetGridNumber(GameSettings.ins.GetGameMode());
+        }
+    }
+
+    void SetGridFormFile()
+    {
+        string level = GameSettings.ins.GetGameMode();
+        selected_grid_data = Config.ReadGameBoardLevel();
+        var data = Config.ReadGridData();
+        setGridSquareData(data);
+        SetGridNotes(Config.GetGridNotes());
+    }
+
+    private void SetGridNotes(Dictionary<int, List<int>> notes)
+    {
+        foreach(var note in notes)
+        {
+            grid_square_[note.Key].GetComponent<GridSquare>().SetGridNotes(note.Value);
+        }
     }
 
     // Update is called once per frame
@@ -131,6 +155,31 @@ public class Grid : MonoBehaviour
     {
         GameEvents.OnSquareSelected -= OnSquareSelected;
         GameEvents.OnUpdateSquareNumber -= CheckBoardCompleted;
+
+        var solved_data = SudokuData.ins.sudoku_game[GameSettings.ins.GetGameMode()][selected_grid_data].solved_data;
+        int[] unsolved_data = new int[81]; 
+        Dictionary<string, List<string>> grid_notes = new Dictionary<string, List<string>>();   
+
+        for(int i = 0; i < grid_square_.Count; i++)
+        {
+            var comp = grid_square_[i].GetComponent<GridSquare>();
+            unsolved_data[i] = comp.GetSquareNumber();
+            string key = "square_note:" + i.ToString();
+            grid_notes.Add(key, comp.GetSquareNotes()); 
+        }
+
+        SudokuData.SudokuBoardData current_game_data = new SudokuData.SudokuBoardData(unsolved_data, solved_data);
+        if(!GameSettings.ins.GetExitAfterWon())
+        {
+            Config.SaveBoardData(current_game_data,
+                GameSettings.ins.GetGameMode(),
+                selected_grid_data,
+                Lives.ins.GetErrorNumber(),
+                grid_notes);
+        } else
+        {
+            Config.DeleteDataFile();
+        }
     }
 
     private void SetSquaresColor(int[] data, Color col)

@@ -19,7 +19,6 @@ public class Clock : MonoBehaviour
     void Start()
     {
         stop_clock = false;
-        delta_time = 0;
     }
 
     // Update is called once per frame
@@ -46,6 +45,13 @@ public class Clock : MonoBehaviour
         }
         ins = this;
         textClock = GetComponent<Text>();
+        if(GameSettings.ins.GetContinuePreviousGame())
+        {
+            delta_time = Config.ReadGameTime();
+        } else
+        {
+            delta_time = 0;
+        }
     }
 
     string LeadingZero(int a)
@@ -65,6 +71,11 @@ public class Clock : MonoBehaviour
     private void OnDisable()
     {
         GameEvents.OnGameOver -= OnGameOver;
+    }
+
+    public static string GetCurrentTime()
+    {
+        return ins.delta_time.ToString();
     }
 
     public Text GetCurrentTimeText()
