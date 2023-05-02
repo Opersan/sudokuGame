@@ -176,6 +176,10 @@ public class GridSquare : Selectable, IPointerClickHandler, ISubmitHandler, IPoi
         {
             number_text.GetComponent<Text>().text = number_.ToString();
         }
+        if(has_default_value_)
+        {
+            number_text.GetComponent<Text>().fontStyle = FontStyle.Bold;
+        }
     }
     
     public void SetNumber(int number)
@@ -221,37 +225,48 @@ public class GridSquare : Selectable, IPointerClickHandler, ISubmitHandler, IPoi
         }
     }
 
+    public void SetCorrectValueOnHint()
+    {
+        SetSquareNumber(correct_number_);
+    }
+
     public void OnSetNumber(int number)
     {
         if(selected_ && has_default_value_ == false)
         {
-            if (note_active && !has_wrong_value)
-            {
-                SetNoteSingleNumberValue(number);
-            }
-            else if (!note_active)
-            {
-                SetNoteNumberValue(0);
-                SetNumber(number);
-                if (number_ != correct_number_)
-                {
-                    has_wrong_value = true;
-                    var colors = this.colors;
-                    colors.normalColor = Color.red;
-                    this.colors = colors;
+            SetSquareNumber(number);
+        }
+    }
 
-                    GameEvents.OnWrongNumberMethod();
-                }
-                else
-                {
-                    has_wrong_value = false;
-                    has_default_value_ = true;
-                    var colors = this.colors;
-                    colors.normalColor = Color.white;
-                    this.colors = colors;
-                }
+    private void SetSquareNumber(int number)
+    {
+        if (note_active && !has_wrong_value)
+        {
+            SetNoteSingleNumberValue(number);
+        }
+        else if (!note_active)
+        {
+            SetNoteNumberValue(0);
+            SetNumber(number);
+            if (number_ != correct_number_)
+            {
+                has_wrong_value = true;
+                var colors = this.colors;
+                colors.normalColor = Color.red;
+                this.colors = colors;
+
+                GameEvents.OnWrongNumberMethod();
+            }
+            else
+            {
+                has_wrong_value = false;
+                has_default_value_ = true;
+                var colors = this.colors;
+                colors.normalColor = Color.white;
+                this.colors = colors;
             }
         }
+        GameEvents.CheckBoardCompletedMethod();
     }
 
     public void OnSquareSelected(int square_index)
@@ -268,4 +283,6 @@ public class GridSquare : Selectable, IPointerClickHandler, ISubmitHandler, IPoi
         colors.normalColor = col;
         this.colors = colors;
     }
+
+   
 }

@@ -54,12 +54,6 @@ public class Grid : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void CreateGrid()
     {
         SpawnGridSquares();
@@ -139,22 +133,24 @@ public class Grid : MonoBehaviour
     {
         for (int i = 0; i < grid_square_.Count; i++)
         {
+            grid_square_[i].GetComponent<GridSquare>().SetHasDefaultValue(data.unsolved_data[i] != 0 && data.unsolved_data[i] == data.solved_data[i]);
             grid_square_[i].GetComponent<GridSquare>().SetNumber(data.unsolved_data[i]);
             grid_square_[i].GetComponent<GridSquare>().SetCorrectNumber(data.solved_data[i]);
-            grid_square_[i].GetComponent<GridSquare>().SetHasDefaultValue(data.unsolved_data[i] != 0 && data.unsolved_data[i] == data.solved_data[i]);
         }
     }
 
     private void OnEnable()
     {
         GameEvents.OnSquareSelected += OnSquareSelected;
-        GameEvents.OnUpdateSquareNumber += CheckBoardCompleted;
+        GameEvents.OnCheckBoardCompleted += CheckBoardCompleted;
+        GameEvents.OnHintReward += OnHintReward;
     }
 
     private void OnDisable()
     {
         GameEvents.OnSquareSelected -= OnSquareSelected;
-        GameEvents.OnUpdateSquareNumber -= CheckBoardCompleted;
+        GameEvents.OnCheckBoardCompleted -= CheckBoardCompleted;
+        GameEvents.OnHintReward -= OnHintReward;
 
         var solved_data = SudokuData.ins.sudoku_game[GameSettings.ins.GetGameMode()][selected_grid_data].solved_data;
         int[] unsolved_data = new int[81]; 
@@ -180,6 +176,7 @@ public class Grid : MonoBehaviour
         {
             Config.DeleteDataFile();
         }
+        GameSettings.ins.SetExitAfterWon(false);
     }
 
     private void SetSquaresColor(int[] data, Color col)
@@ -200,19 +197,33 @@ public class Grid : MonoBehaviour
         var vertical_line = LineIndicator.ins.getVericalLine(square_index);
         var square = LineIndicator.ins.GetSquare(square_index);
 
-        SetSquaresColor(LineIndicator.ins.GetAllSquaresIndexes(), Color.white);
+        if (grid_square_[square_index].GetComponent<GridSquare>().GetHasDefaultValue() == false)
+        {
+            SetSquaresColor(LineIndicator.ins.GetAllSquaresIndexes(), Color.white);
+            SetSquaresColor(horizontal_line, line_highlight_color);
+            SetSquaresColor(vertical_line, line_highlight_color);
+            SetSquaresColor(square, line_highlight_color);
+        } else
+        {
+            foreach(var gridSquare in grid_square_)
+            {
+                var comp = gridSquare.GetComponent<GridSquare>();
+                if(comp.HasWrongValue() == false && comp.IsSelected() == false)
+                {
+                    comp.SetSquareColor(Color.white);
+                }
+            }
+        }
 
-        SetSquaresColor(horizontal_line, line_highlight_color);
-        SetSquaresColor(vertical_line, line_highlight_color);
-        SetSquaresColor(square, line_highlight_color);
+       
     }
     
-    private void CheckBoardCompleted(int number)
+    private void CheckBoardCompleted()
     {
         foreach(var square in grid_square_)
         {
             var comp = square.GetComponent<GridSquare>();
-            if (!comp.IsCorrectNumberSet())
+            if (comp.IsCorrectNumberSet() == false)
             {
                 return;
             }
@@ -228,6 +239,28 @@ public class Grid : MonoBehaviour
             comp.SetCorrectNumber();
         }
 
-        CheckBoardCompleted(0);
+        CheckBoardCompleted();
+    }
+
+    public void OnHintReward()
+    {
+        var squareIndexes = new List<int>();
+
+        for (var i = 0; i < grid_square_.Count; i++)
+        {
+            var comp = grid_square_[i].GetComponent<GridSquare>();
+            if(comp.GetSquareNumber() == 0 && comp.GetHasDefaultValue() == false)
+            {
+                squareIndexes.Add(i);
+            }
+        }
+
+        if(squareIndexes.Count == 0 ) 
+        {
+            return;
+        }
+        var random_index = UnityEngine.Random.Range(0, squareIndexes.Count);
+        var square_index = squareIndexes[random_index];
+        grid_square_[square_index].GetComponent<GridSquare>().SetCorrectValueOnHint();
     }
 }

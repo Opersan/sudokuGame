@@ -1,9 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameEvents : MonoBehaviour
 {
+    public delegate void CheckBoardCompleted();
+    public static event CheckBoardCompleted OnCheckBoardCompleted;
+    public static void CheckBoardCompletedMethod()
+    {
+        if (OnCheckBoardCompleted != null)
+        {
+            OnCheckBoardCompleted();
+        }
+    }
+
     public delegate void UpdateSquareNumber(int number);
     public static event UpdateSquareNumber OnUpdateSquareNumber;
     public static void UpdateSquareNumberMethod(int number)
@@ -71,6 +82,16 @@ public class GameEvents : MonoBehaviour
         if (OnBoardCompleted != null)
         {
             OnBoardCompleted();
+        }
+    }
+
+    public delegate void HintReward();
+    public static event HintReward OnHintReward;
+    public static void OnHintRewardMethod()
+    {
+        if (OnHintReward != null)
+        {
+            OnHintReward();
         }
     }
 }
