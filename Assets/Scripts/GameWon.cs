@@ -15,6 +15,7 @@ public class GameWon : MonoBehaviour
     private void OnBoardCompleted()
     {
         WinPopup.SetActive(true);
+        GameEvents.OnGameOverMethod();
         ClockText.text = Clock.ins.GetCurrentTimeText().text;
     }
 
