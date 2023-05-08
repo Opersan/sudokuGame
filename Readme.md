@@ -17,10 +17,12 @@ Bir hücreye rakam eklemeden önce hücreyi aşağıdaki kurallara göre inceley
 
 ![](3.png) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Doğru
+
 2. Rakam her bir sütunda sadece bir kez yer alabilir. <br>
 ![](4.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](5.png)  <br>
-   &nbsp;&nbsp;&nbsp;&nbsp;Yanlış&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Doğru
+   &nbsp;&nbsp;&nbsp;&nbsp;Yanlış&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Doğru <br>
+
 3. Rakam her bir küçük 3×3 karede sadece bir kez bulunabilir. <br>
 ![](6.png) &nbsp;&nbsp;&nbsp;
 ![](7.png) <br>
