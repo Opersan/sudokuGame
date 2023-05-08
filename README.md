@@ -4,13 +4,13 @@ Sudoku, rakamlardan oluşan bir mantık bulmaca oyunudur. Bunu çözmek için ko
 ## Oyunun Kuralları
 Oynama alanı, kenarda 3 hücre ile küçük karelere bölünmüş 9x9 karedir. Oyunun amacı, her bir sırada, her bir sütunda ve her bir küçük 3 × 3 karede her numara sadece bir kez yer alacak şekilde boş hücreleri 1'den 9'a kadar rakamlarla doldurmaktır.
 
-Oyunun başında hücrelerin bazıları zaten doludur<br>
+Oyunun başında hücrelerin bazıları zaten doludur.<br>
 
 ![](1.png) <br>
 
 Bir hücreye rakam eklemeden önce hücreyi aşağıdaki kurallara göre inceleyin:
 
-1. Rakam her bir satırda sadece bir kez yer alabilir
+1. Rakam her bir satırda sadece bir kez yer alabilir.
 
 ![](2.png) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yanlış
@@ -56,4 +56,19 @@ Tüm hücreleri rakam adaylarıyla dolduruyoruz. Daha sonra, tek bir adayı olan
 ![](13.png) <br> 
 
 Tebrikler, Sudoku'yu çözdünüz! Şimdi zihninizi eğitmeyi deneyin ve not modunu kullanmayın, tüm rakam adaylarını akılda tutun, hafızanızı ve mantığınızı kullanın!
+
+## Bazı Belirsiz Butonların Açıklaması ve Sınırlamaların Tanıtımı
+Oyun başına tam olarak **3 adet** yanlış yapma hakkınız vardır. Bu haklar dolduğunda oyun biter ve süreniz görüntülenir.
+
+![](14.png) &nbsp;&nbsp;&nbsp; ![](15.png) <br>
+
+Aşağıdaki görseli bulunan buton size **3 adet** ipucu hakkı sunar. Haklarınız dolduğunda soluk ve tıklanamaz bir butona
+dönüşücektir.
+
+![](16.png) <br>
+
+asd
+
+![](17.png) ![](18.png)
+
 
