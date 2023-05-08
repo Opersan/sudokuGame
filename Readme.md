@@ -1,4 +1,10 @@
 # Yazılım Mühendisliğinde Güncel Konular Vize Projesi
+## Projeye Genel Bakış
+Yazılım Mühendisliğinde Güncel konular dersinin vize projesinde sudoku oyununu mobil platform üzerinde geliştirmeyi amaçladım.
+Bahsi geçen mobil uygulama için geliştirme ortamını Unity ve C# olarak belirledim. Uygulama 9x9 boyutunda tablolardan oluşan bir bulmaca oyunu ve depremzede çocuklar için
+eğlenceli bir oyun olmayı amaçlıyor. Uygulamanın ipucu, geri alma, duraklatılabilme, bir sayaç, ana menüye dönebilme, zorlukların seçilebilmesi, not alabilme gibi özellikleri barındırmasını amaçlıyorum.
+Ayrıca eğlenci ve çocuklara hitap eden aynı zamanda uzun süreli dinlemede rahatsızlık vermeyecek bir müzik sistemi de içermeli.
+
 ## Sudoku Tanıtımı
 Sudoku, rakamlardan oluşan bir mantık bulmaca oyunudur. Bunu çözmek için konsantre olmanız ve aynı zamanda mantıksal düşünmeyi kullanmalısınız. Sudoku'nun zorluğu, başlangıçta doldurulmuş olan hücrelerin sayısına ve bunu çözmek için kullanılması gereken yöntemlere bağlıdır. Düzenli Sudoku oynamak hafızayı, mental netliği geliştirir ve beyin hücrelerinin yaşlanmasını azaltır.
 ## Oyunun Kuralları
@@ -60,15 +66,24 @@ Tebrikler, Sudoku'yu çözdünüz! Şimdi zihninizi eğitmeyi deneyin ve not mod
 ## Bazı Belirsiz Butonların Açıklaması ve Sınırlamaların Tanıtımı
 Oyun başına tam olarak **3 adet** yanlış yapma hakkınız vardır. Bu haklar dolduğunda oyun biter ve süreniz görüntülenir.
 
-![](14.png) &nbsp;&nbsp;&nbsp; ![](15.png) <br>
+![](14.png) &nbsp;&nbsp;&nbsp; ![](15.png)
 
 Aşağıdaki görseli bulunan buton size **3 adet** ipucu hakkı sunar. Haklarınız dolduğunda soluk ve tıklanamaz bir butona
 dönüşücektir.
 
-![](16.png) <br>
+![](16.png)
 
-asd
+Alt taraftaki butonların işlevi sırasıyla; Anamenü, Sil, Not Ekle ve Duraklat.
+![](17.png)
 
-![](17.png) ![](18.png)
+Ek olarak not almak istediğiniz buton aktif olduğunda maviye dönüşmektedir.
+
+![](18.png)
+
+# Proje İle İlgili Belge ve Çizelgeler
+## Zaman Çizelgesi Belgesi
+adsdasdas
+## Programcı Kılavuzu Dökümanı
+
 
 
