@@ -89,7 +89,17 @@ Ek olarak not almak istediğiniz buton aktif olduğunda maviye dönüşmektedir.
 
 ## Programcı Kılavuzu Dökümanı ve Diyagramlar
 
-## Proje Değerlendirme Dökümanı
+Aşağıda sırasıyla UML sınıf diyagramlarının ekran görüntülerini paylaşıyorum. İlk ekran görüntüsünde tüm sistemin
+birbiriyle olan ilişkileri belirtilirken, 2. fotoğraf ana sistem olan sudokunun ana mantığıyla ilgili iken, 3.fotoğraf
+menü butonları ve 4.fotoğraf ise oyun olayları hakkındaki ilişkileri belirtmektedir.
+
+![](24.png)
+
+![](21.png)
+
+![](22.png)
+
+![](23.png)
 
 
 
