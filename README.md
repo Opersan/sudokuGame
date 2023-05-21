@@ -1,9 +1,11 @@
 # Yazılım Mühendisliğinde Güncel Konular Vize Projesi
 ## Projeye Genel Bakış
-Yazılım Mühendisliğinde Güncel konular dersinin vize projesinde sudoku oyununu mobil platform üzerinde geliştirmeyi amaçladım.
+Yazılım Mühendisliğinde Güncel konular dersinin vize projesinde sudoku oyununu mobil platform üzerinde geliştirmeyi amaçladım. Yoklama sırasında 50.sıradayım ve 50.kart görseli aşağıda eklidir.
 Bahsi geçen mobil uygulama için geliştirme ortamını Unity ve C# olarak belirledim. Uygulama 9x9 boyutunda tablolardan oluşan bir bulmaca oyunu ve depremzede çocuklar için
 eğlenceli bir oyun olmayı amaçlıyor. Uygulamanın ipucu, geri alma, duraklatılabilme, bir sayaç, ana menüye dönebilme, zorlukların seçilebilmesi, not alabilme gibi özellikleri barındırmasını amaçlıyorum.
-Ayrıca eğlenci ve çocuklara hitap eden aynı zamanda uzun süreli dinlemede rahatsızlık vermeyecek bir müzik sistemi de içermeli.
+
+
+![](19.png) <br>
 
 ## Sudoku Tanıtımı
 Sudoku, rakamlardan oluşan bir mantık bulmaca oyunudur. Bunu çözmek için konsantre olmanız ve aynı zamanda mantıksal düşünmeyi kullanmalısınız. Sudoku'nun zorluğu, başlangıçta doldurulmuş olan hücrelerin sayısına ve bunu çözmek için kullanılması gereken yöntemlere bağlıdır. Düzenli Sudoku oynamak hafızayı, mental netliği geliştirir ve beyin hücrelerinin yaşlanmasını azaltır.
@@ -82,8 +84,13 @@ Ek olarak not almak istediğiniz buton aktif olduğunda maviye dönüşmektedir.
 
 # Proje İle İlgili Belge ve Çizelgeler
 ## Zaman Çizelgesi Belgesi
-adsdasdas
-## Programcı Kılavuzu Dökümanı
+
+![](20.png)
+
+## Programcı Kılavuzu Dökümanı ve Diyagramlar
+
+## Proje Değerlendirme Dökümanı
+
 
 
 
