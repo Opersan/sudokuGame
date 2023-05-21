@@ -9,7 +9,7 @@ eğlenceli bir oyun olmayı amaçlıyor. Uygulamanın ipucu, geri alma, duraklat
 
 ## Sudoku Tanıtımı ve Nasıl Çalıştırılabilir ? 
 Sudoku, rakamlardan oluşan bir mantık bulmaca oyunudur. Bunu çözmek için konsantre olmanız ve aynı zamanda mantıksal düşünmeyi kullanmalısınız. Sudoku'nun zorluğu, başlangıçta doldurulmuş olan hücrelerin sayısına ve bunu çözmek için kullanılması gereken yöntemlere bağlıdır. Düzenli Sudoku oynamak hafızayı, mental netliği geliştirir ve beyin hücrelerinin yaşlanmasını azaltır.
-***APK dosyası repository içerisindedir.***
+***APK dosyası repository içerisinde sudokuGame.apk ismiyle bulunmaktadır.***
 ## Oyunun Kuralları
 Oynama alanı, kenarda 3 hücre ile küçük karelere bölünmüş 9x9 karedir. Oyunun amacı, her bir sırada, her bir sütunda ve her bir küçük 3 × 3 karede her numara sadece bir kez yer alacak şekilde boş hücreleri 1'den 9'a kadar rakamlarla doldurmaktır.
 
